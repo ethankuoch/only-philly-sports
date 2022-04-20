@@ -4,14 +4,15 @@
 */
 
 chrome.runtime.onInstalled.addListener(() => {
-    chrome.storage.sync.get(['nfl', 'nba', 'mlb', 'nhl', 'military_format'], function(result) {
-        let resultUndefined = false
-        for (let key of Object.keys(result)) {
-            if (result[key] === undefined) {
-                resultUndefined = true
+    chrome.storage.sync.get(['nfl', 'nba', 'mlb', 'nhl', 'military_format'], function(results) {
+        let resultsUndefined = false
+        for (let key of Object.keys(results)) {
+            if (results[key] === undefined) {
+                resultsUndefined = true
+                break
             }
         }
-        if (resultUndefined) {
+        if (resultsUndefined) {
             chrome.storage.sync.set({
                 'nfl': true,
                 'nba': true,
@@ -21,8 +22,8 @@ chrome.runtime.onInstalled.addListener(() => {
             });
             console.log("Defaults values set.")
         } else {
-            console.log("Existing data values set: ", result)
-            chrome.storage.sync.set(result)
+            console.log("Existing data values set: ", results)
+            chrome.storage.sync.set(results)
         }
     })
 });
