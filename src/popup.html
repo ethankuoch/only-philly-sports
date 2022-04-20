@@ -1,0 +1,84 @@
+<!-- Ethan Kuoch -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/styles.css" />
+        <title>Only Philly Sports</title>
+    </head>
+    <body>
+        <div id="main">
+            <!--Alert Card-->
+            <div id="alert" class="card" style="display: block">
+                <p>No games today &#128577;</p>
+            </div>
+
+            <!-- NFL score card -->
+
+            <div id="nfl" class="card" style="display: none">
+                <h3>NFL</h3>
+                <p id="nfl-status" class="gamestatus"></p>
+                <div class="score-container">
+                    <br />
+                    <img id="nfl-away-logo" class="logo" />
+                    <span id="nfl-score"></span>
+                    <img id="nfl-home-logo" class="logo" />
+                </div>
+            </div>
+
+            <!-- NBA score card -->
+
+            <div id="nba" class="card" style="display: none">
+                <h3>NBA</h3>
+                <p id="nba-status" class="gamestatus"></p>
+                <div class="score-container">
+                    <br />
+                    <img id="nba-away-logo" class="logo" />
+                    <span id="nba-score"></span>
+                    <img id="nba-home-logo" class="logo" />
+                </div>
+            </div>
+
+            <!-- MLB score card -->
+
+            <div id="mlb0" class="card" style="display: none">
+                <h3>MLB</h3>
+                <p id="mlb0-status" class="gamestatus"></p>
+                <div class="score-container">
+                    <br />
+                    <img class="logo mlb-away-logo" />
+                    <span id="mlb0-score"></span>
+                    <img class="logo mlb-home-logo" />
+                </div>
+                <div id="mlb1" style="display: none">
+                    <br />
+                    <p id="mlb1-status" class="gamestatus"></p>
+                    <div class="score-container">
+                        <br />
+                        <img class="logo mlb-away-logo" />
+                        <span id="mlb1-score"></span>
+                        <img class="logo mlb-home-logo" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- NHL score card -->
+
+            <div id="nhl0" class="card" style="display: none">
+                <h3>NHL</h3>
+                <p id="nhl0-status" class="gamestatus"></p>
+                <div class="score-container">
+                    <br />
+                    <img id="nhl-away-logo" class="logo" />
+                    <span id="nhl0-score"></span>
+                    <img id="nhl-home-logo" class="logo" />
+                </div>
+            </div>
+            <div id="options-button">V</div>
+        </div>
+        <script type="text/javascript" src="../scripts/main.js"></script>
+    </body>
+</html>
