@@ -50,4 +50,4 @@ Score cards | Settings page
 * This add-on is not even close to finished! Expect a lot of bugs and ugly-looking code
 * After new stuff is pushed, expect an update for the extension itself within 7 days
 * Updates will arrive whenever I have time
-* Will add to the Chrome and Firefox stores when most features I'd like are added
+* Will add to the Firefox store when most features I'd like are added. Chrome requires a fee to create add-ons which I don't feel like paying
