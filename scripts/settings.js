@@ -3,21 +3,14 @@
     OPS
 */
 
-function save_options() {
-    let nfl = document.getElementById('nfl').checked;
-    let nba = document.getElementById('nba').checked;
-    let mlb = document.getElementById('mlb').checked;
-    let nhl = document.getElementById('nhl').checked;
-    let military_format = document.getElementById('military_format').checked;
-    
+function save_options() {   
     chrome.storage.sync.set({
-        'nfl': nfl,
-        'nba': nba,
-        'mlb': mlb,
-        'nhl': nhl,
-        'military_format': military_format,
+        'nfl': document.getElementById('nfl').checked,
+        'nba': document.getElementById('nba').checked,
+        'mlb': document.getElementById('mlb').checked,
+        'nhl': document.getElementById('nhl').checked,
+        'military_format': document.getElementById('military_format').checked,
     }, function() {
-        // Update status to let user know options were saved.
         document.getElementById('save').textContent = 'Options saved.';
         setTimeout(function() {
             document.getElementById('save').textContent = 'Save';
