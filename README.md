@@ -23,7 +23,7 @@ Only Philly Sports
 
 Score cards | Settings page
 :----------:|:------------------:
-<img src=""/>| <img src=""/><br><sup>Options to toggle leagues and time format</sup>
+![image](https://user-images.githubusercontent.com/65685915/164351186-065826c8-9c7f-4ac9-81e7-c6d49a278a1a.png)| ![image](https://user-images.githubusercontent.com/65685915/164351487-788c37d2-ef6b-4d52-802b-fe4398a09c1a.png)<br><sup>Options to toggle leagues and time format</sup>
 
 ## Features
 
