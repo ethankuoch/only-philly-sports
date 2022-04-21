@@ -15,7 +15,12 @@ Only Philly Sports
 
 ***
 
-**Add-on to quickly display times and scores for today's Philadelphia sports games.**
+#### Add-on to quickly display times and scores for today's Philadelphia sports games.
+
+### Latest Update:
+
+* Fixed data resetting after updating extension
+* Code clean-up
 
 ***
 
