@@ -21,7 +21,6 @@ Only Philly Sports
 ## Disclaimers
 
 * Occasional updates, so expect this to be outdated from time to time.
-* For Edge, updates take a long time to be published (7 business days), so if anything is broken, it will take a bit before changes are applied
 * Chrome requires a fee to publish add-ons, so I will not be publishing to Chrome Store for now
 
 ***
@@ -43,11 +42,5 @@ Score cards | Settings page
 
 ## Future Ideas
 
-* Nicer-looking settings page
-    * Select team based on logo rather than text
-    * Detailed game states for main teams
-    * League-wide scores
 * Track games that go past midnight
-* Organize Card order display
-* Option to add multiple teams from same league
-* SettingsField class that stores the checkbox and team selection
+* Organize score order display
