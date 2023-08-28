@@ -7,8 +7,6 @@
 Only Philly Sports
 </h1>
 
-***
-
 <p align="center">
 <a href="https://addons.mozilla.org/addon/only-philly-sports/"><img src="https://user-images.githubusercontent.com/585534/107280546-7b9b2a00-6a26-11eb-8f9f-f95932f4bfec.png" alt="OPS for Firefox"></a>
 <a href="https://microsoftedge.microsoft.com/addons/detail/only-philly-sports/abfhkhkibnnjcakeaogfnhcgiippfmge"><img src="https://user-images.githubusercontent.com/585534/107280673-a5ece780-6a26-11eb-9cc7-9fa9f9f81180.png" alt="OPS for Edge"></a>
@@ -23,13 +21,9 @@ Only Philly Sports
 * Occasional updates, so expect this to be outdated from time to time.
 * Chrome requires a fee to publish add-ons, so I will not be publishing to Chrome Store for now
 
-***
-
 ## Screenshots
 
-Score cards | Settings page
-:----------:|:------------------:
-![image](https://user-images.githubusercontent.com/65685915/164351186-065826c8-9c7f-4ac9-81e7-c6d49a278a1a.png)| <img width="318" alt="image" src="https://github.com/ethankuoch/only-philly-sports/assets/65685915/9e994343-1a6e-4320-9747-7033198bfbda">
+![image](https://user-images.githubusercontent.com/65685915/164351186-065826c8-9c7f-4ac9-81e7-c6d49a278a1a.png)
 <br>
 
 ## Features
