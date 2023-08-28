@@ -1,0 +1,52 @@
+<!-- Ethan Kuoch -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../css/styles.css" />
+        <title>OPS | Dashboard</title>
+    </head>
+    <body>
+        <div id="navbar">OPS</div>
+        <div class="settings-field">
+            <div class="settings-header">Leagues</div>
+            <div class="settings-options">
+                <label>
+                    <input type="checkbox" id="nfl">
+                    NFL
+                    <input type="text" id="nfl_abbrev" value="PHI">
+                </label>
+                <label>
+                    <input type="checkbox" id="nba">
+                    NBA
+                    <input type="text" id="nba_abbrev" value="PHI">
+                </label>
+                <label>
+                    <input type="checkbox" id="mlb">
+                    MLB
+                    <input type="text" id="mlb_abbrev" value="PHI">
+                </label>
+                <label>
+                    <input type="checkbox" id="nhl">
+                    NHL
+                    <input type="text" id="nhl_abbrev" value="PHI">
+                </label>
+            </div>
+        </div>
+        <hr>
+        <div class="settings-field">
+            <div class="settings-header">Misc</div>
+            <div class="settings-options">
+                <label>
+                    <input type="checkbox" id="military_format">
+                    24 Hour Format
+                </label>
+            </div>
+        </div>
+        <hr>
+        <div class="settings-field" style="margin: auto; width: 10rem;">
+            <button type="button" id="save">Save</button>
+        </div>
+        <script src="../../scripts/ff_scripts/settings.js"></script>
+    </body>
+</html>

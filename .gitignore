@@ -1,2 +1,6 @@
 *.zip
 *.txt
+*.sh
+*.py
+/scripts/api.js
+manifests/
