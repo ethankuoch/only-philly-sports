@@ -32,7 +32,11 @@ async function parse(league, teamAbbrev) {
             // evaluate game status
             if (game_state.includes("In Progress") && game['status']['period'] >= 1) {
                 game_status.style.color = "red";
-                setTextContent(game_status, `Q${game['status']['period']} | ${game['status']['displayClock']}`);
+                if (league === "mlb") {
+                    setTextContent(game_status, `${game['status']['type']['shortDetail']}`);
+                } else {
+                    setTextContent(game_status, `Q${game['status']['period']} | ${game['status']['displayClock']}`);
+                }
                 setTextContent(game_score, `${away['score']} - ${home['score']}`);
                 
             } else if (game_state.includes("Pre-Game") || game_state.includes("Scheduled")) {
