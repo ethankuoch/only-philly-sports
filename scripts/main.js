@@ -25,7 +25,6 @@ function main() {
             }
         }
 
-
         setTimeout(function() {
             if (document.getElementById("cards").children.length === 0) {
                 let card = new Card("alert");

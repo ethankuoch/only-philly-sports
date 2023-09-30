@@ -41,9 +41,11 @@ class Card {
         head.textContent = `${this.#param.toUpperCase()}`
         p.className = `${this.#param}-status status`
         
-        div.appendChild(head);
+        if (!name.includes("mlb2")) {
+            div.appendChild(head);
+        }
+        
         div.appendChild(p);
-
         return div;
     }
     

@@ -9,10 +9,8 @@ async function parse(league, teamAbbrev) {
 
     let game_number = -1
     for (let game of games) {
-        const dateCheck = String(new Date(game['date'])).slice(0, 15) === String(new Date()).slice(0, 15)
-
-        if (game['shortName'].includes(teamAbbrev) && dateCheck) {
-            const card = new Card(league);
+        if (game['shortName'].includes(teamAbbrev)) {
+            let card = new Card(league);
             document.getElementById("cards").appendChild(card.div);
             
             game_number += 1
