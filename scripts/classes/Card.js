@@ -1,71 +1,109 @@
 class Card {
-    #param;
+    #league;
+    #gameStatus;
+    #isGameLive;
+    #gameScore;
+    #homeLogo;
+    #awayLogo;
+    #isDoubleHeader;
+    #game2Status;
+    #isGame2Live;
+    #game2Score;
 
-    constructor(param) {
-        this.#param = param;
+
+    /**
+     * Creates a Card object using the blob dictionary
+     * @param {Dictionary} blob dictionary with specific api data
+     */
+    constructor(blob) {
+        this.#league = blob['League'];
+        this.#gameStatus = blob['GameStatus'];
+        this.#isGameLive = blob['isGameLive'];
+        this.#gameScore = blob['GameScore'];
+        this.#homeLogo = blob['HomeLogo'];
+        this.#awayLogo = blob['AwayLogo'];
+        this.#isDoubleHeader = blob['isDoubleHeader']
+        if (this.#isDoubleHeader) {
+            this.#game2Status = blob['Game2Status'];
+            this.#isGame2Live = blob['isGame2Live'];
+            this.#game2Score = blob['Game2Score'];
+        }
     }
 
-    #makeContainer() {
-        const scoreContainer = document.createElement("div");
-        const away_img = document.createElement("img")
-        const score = document.createElement("span")
-        const home_img = document.createElement("img")
+
+    /**
+     * Constructs a container box inside the card to store game score and logos
+     * @param {String} name name of previous div to check for doubleheader condition
+     * @returns scoreContainer div with logos and score
+     */
+    #makeContainer(name) {
+        let scoreContainer = document.createElement("div");
+        let away_img = document.createElement("img");
+        let score = document.createElement("span");
+        let home_img = document.createElement("img");
+        
+        away_img.className = `logo ${this.#league}-away-logo`;
+        away_img.src = this.#awayLogo;
+        score.className = `${this.#league}-score`;
+        if (this.#isDoubleHeader && name.includes("2")) {
+            score.textContent = this.#game2Score;
+        } else {
+            score.textContent = this.#gameScore;
+        }
+        home_img.className = `logo ${this.#league}-home-logo`;
+        home_img.src = this.#homeLogo;
         
         scoreContainer.className = "score-container";
-        away_img.className = `logo ${this.#param}-away-logo`;
-        score.className = `${this.#param}-score`;
-        home_img.className = `logo ${this.#param}-home-logo`;
-
-        scoreContainer.appendChild(document.createElement("br"))
-        scoreContainer.appendChild(away_img)
-        scoreContainer.appendChild(score)
-        scoreContainer.appendChild(home_img)
+        scoreContainer.appendChild(document.createElement("br"));
+        scoreContainer.appendChild(away_img);
+        scoreContainer.appendChild(score);
+        scoreContainer.appendChild(home_img);
 
         return scoreContainer;
     }
 
+
+    /**
+     * Creates the card div whilst also calling makeContainer
+     * @param {String} name name of div to check for doubleheader condition
+     * @returns a div object with header, game status, and container items
+     */
     #makeCard(name) {
-        const div = document.createElement("div");
-        const head = document.createElement("h3");
-        const p = document.createElement("p");
+        let div = document.createElement("div");
+        let head = document.createElement("h3");
+        let p = document.createElement("p");
         
         div.className = "card";
         div.id = name;
-        
-        if (name === "alert") {
-            p.textContent = "No games today"
-            return div
+        head.textContent = `${this.#league.toUpperCase()}`
+        p.className = `${this.#league}-status status`
+        if (this.#isDoubleHeader && name.includes("2")) {
+            p.textContent = this.#game2Status
+        } else {
+            p.textContent = this.#gameStatus
         }
-        
-        div.style.display = "none";
-        head.textContent = `${this.#param.toUpperCase()}`
-        p.className = `${this.#param}-status status`
-        
-        if (!name.includes("mlb2")) {
+        if (this.#isGameLive && name.includes("1") || this.#isGame2Live && name.includes("2")) {
+            p.color = "red";
+        }
+        if (name.includes("1")) {
             div.appendChild(head);
         }
-        
         div.appendChild(p);
+        div.appendChild(this.#makeContainer(name));
         return div;
     }
     
+
+    /**
+     * Returns a div object of Card
+     */
     get div() {
-        if (this.#param === "mlb") {
-            const div = this.#makeCard(`${this.#param}1`);
-            const div2 = this.#makeCard(`${this.#param}2`);
-            const scoreContainer = this.#makeContainer();
-            const scoreContainer2 = this.#makeContainer();
-
-            div.appendChild(scoreContainer);
-            div2.appendChild(scoreContainer2);
-            div.appendChild(div2);
-
-            return div
+        if (this.#isDoubleHeader) {
+            let div1 = this.#makeCard(`${this.#league}1`);
+            div1.appendChild(this.#makeCard(`${this.#league}2`));
+            return div1
         } else {
-            const div = this.#makeCard(`${this.#param}1`);
-            const scoreContainer = this.#makeContainer();
-            div.appendChild(scoreContainer);
-            return div
+            return this.#makeCard(`${this.#league}1`);
         }
     }
 }

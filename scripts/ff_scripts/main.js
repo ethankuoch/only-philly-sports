@@ -1,38 +1,43 @@
-/*
-    Ethan Kuoch
-    OPS
-*/
-
-
 document.querySelector('#options-button').addEventListener('click', function() {    
     window.open(browser.runtime.getURL('../src/settings.html'));
 });
 
 
+/**
+ * Creates cards for each selected league if data was found
+ */
 function main() {
-    let teamAbbrev = {};
+    const selectedLeagues = filterSelectedLeagues();
     browser.storage.sync.get(['nfl_abbrev', 'nba_abbrev', 'mlb_abbrev', 'nhl_abbrev'])
-    .then(results => {
-        for (let abb in results) {
-            teamAbbrev[abb.split("_")[0]] = results[abb];
-        }
-    })
-
-    browser.storage.sync.get(['nfl', 'nba', 'mlb', 'nhl'])
-    .then(results => {
-        for (let league in results) {
-            if (results[league]) {
-                parse(league, teamAbbrev[league]);
-            }
-        }
-
-        setTimeout(function() {
-            if (document.getElementById("cards").children.length === 0) {
-                let card = new Card("alert");
-                document.getElementById("cards").appendChild(card.div);
-            }
-        }, 500);
-    })
+    .then((results) => {
+        selectedLeagues.forEach((league) => {
+            parse(league, results[`${league}_abbrev`]).then(blob => {
+                if (blob['GameStatus']) {
+                    const card = new Card(blob);
+                    document.getElementById("cards").appendChild(card.div);
+                }
+            });
+        });
+    });
 }
+
+
+/**
+ * Gets league browser attributes and filters from selected leagues
+ * @returns a list of selected leagues
+ */
+function filterSelectedLeagues() {
+    let selectedLeagues = [];
+    browser.storage.sync.get(['nfl', 'nba', 'mlb', 'nhl'])
+    .then((results) => {
+        for (const league in results) {
+            if (results[league]) {
+                selectedLeagues.push(league);
+            }
+        }
+    });
+    return selectedLeagues;
+}
+
 
 main()

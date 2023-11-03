@@ -4,3 +4,6 @@
 *.py
 /scripts/api.js
 manifests/
+/chrome_ops
+/ff_ops
+.DS_STORE
