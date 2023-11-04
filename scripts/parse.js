@@ -1,38 +1,4 @@
 /**
- * Formats the time based on browser storage settings
- * @param {String} time time that the game starts
- * @returns the time in either 12-hour or 24-hour format
- */
-function formatTime(time) {
-    /**
-     * Converts a 24-hour time into 12-hour format
-     * @param {String} time 
-     * @returns HH:MM AM/PM
-     */
-    function timeTo12(time) {
-        let hours = time.slice(0, 2);
-        const mins = time.slice(3, 5);
-        let abb;
-        if (Number(hours) >= 12) {
-            abb = "PM";
-        } else {
-            abb = "AM";
-        }
-        hours = ((Number(hours) + 11) % 12) + 1;
-        return `${hours}:${mins} ${abb}`;
-    };
-
-    chrome.storage.sync.get("military_format", (results) => {
-        if (results['military_format']) {
-            return time;
-        } else {
-            return timeTo12(time);
-        }
-    });
-}
-
-
-/**
  * Sets the game score and status in blob from api call
  * @param {Dictionary} blob object of specific api data
  * @param {Dictionary} game entire game details from api call
@@ -54,10 +20,10 @@ function setGameScoreAndStatus(blob, game, away, home, league, statusKey, scoreK
         }
         blob[scoreKey] = `${away['score']} - ${home['score']}`;
     } else if (gameStatus.includes("Pre-Game") || gameStatus.includes("Scheduled")) {
-        blob[statusKey] = formatTime((new Date(game['date'])).toString().slice(16, 21));
+        blob[statusKey] = (new Date(game['date'])).toString().slice(16, 21);
         blob[scoreKey] = `${game['shortName']}`;
     } else {
-        blob[statusKey] = gameStatus;
+        blob[statusKey] = game['status']['type']['shortDetail'];
         if (away['score'] || home['score']) {
             blob[scoreKey] = `${away['score']} - ${home['score']}`;
         } else {

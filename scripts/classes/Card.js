@@ -83,7 +83,7 @@ class Card {
             p.textContent = this.#gameStatus
         }
         if (this.#isGameLive && name.includes("1") || this.#isGame2Live && name.includes("2")) {
-            p.color = "red";
+            p.style.color = "red";
         }
         if (name.includes("1")) {
             div.appendChild(head);

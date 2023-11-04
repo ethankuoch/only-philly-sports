@@ -4,6 +4,25 @@ document.querySelector('#options-button').addEventListener('click', function() {
 
 
 /**
+ * Converts a 24-hour time into 12-hour format
+ * @param {String} time 
+ * @returns HH:MM AM/PM
+ */
+function timeTo12(time) {
+    let hours = time.slice(0, 2);
+    const mins = time.slice(3, 5);
+    let abb;
+    if (Number(hours) >= 12) {
+        abb = "PM";
+    } else {
+        abb = "AM";
+    }
+    hours = ((Number(hours) + 11) % 12) + 1;
+    return `${hours}:${mins} ${abb}`;
+};
+
+
+/**
  * Creates cards for each selected league if data was found
  */
 function main() {
@@ -12,9 +31,18 @@ function main() {
     .then((results) => {
         selectedLeagues.forEach((league) => {
             parse(league, results[`${league}_abbrev`]).then(blob => {
+                console.log(blob)
                 if (blob['GameStatus']) {
-                    const card = new Card(blob);
-                    document.getElementById("cards").appendChild(card.div);
+                    browser.storage.sync.get("military_format").then((res) => {
+                        if (!isNaN(timeTo12(blob['GameStatus'])) && !res['military_format']) {
+                            blob['GameStatus'] = timeTo12(blob['GameStatus']);
+                        }
+                        // If you want a specific order, put the cards in dictionaries,
+                        // get the ordered array, then loop through that array and append
+                        // in that order
+                        const card = new Card(blob);
+                        document.getElementById("cards").appendChild(card.div);
+                    })
                 }
             });
         });
