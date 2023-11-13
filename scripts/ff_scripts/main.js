@@ -31,7 +31,6 @@ function main() {
     .then((results) => {
         selectedLeagues.forEach((league) => {
             parse(league, results[`${league}_abbrev`]).then(blob => {
-                console.log(blob)
                 if (blob['GameStatus']) {
                     browser.storage.sync.get("military_format").then((res) => {
                         if (!isNaN(timeTo12(blob['GameStatus'])) && !res['military_format']) {

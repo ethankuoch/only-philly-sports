@@ -29,7 +29,7 @@ function main() {
             parse(league, results[`${league}_abbrev`]).then((blob) => {
                 if (blob['GameStatus']) {
                     chrome.storage.sync.get("military_format", function(res) {
-                        if (blob['GameStatus'].includes(":") && !res['military_format']) {
+                        if (!isNaN(timeTo12(blob['GameStatus'])) && !res['military_format']) {
                             blob['GameStatus'] = timeTo12(blob['GameStatus']);
                         }
                         // If you want a specific order, put the cards in dictionaries,
