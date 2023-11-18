@@ -33,8 +33,9 @@ function main() {
             parse(league, results[`${league}_abbrev`]).then(blob => {
                 if (blob['GameStatus']) {
                     browser.storage.sync.get("military_format").then((res) => {
-                        if (!isNaN(timeTo12(blob['GameStatus'])) && !res['military_format']) {
-                            blob['GameStatus'] = timeTo12(blob['GameStatus']);
+                        const time = timeTo12(blob['GameStatus']);
+                        if ((!isNaN(time) || time.includes("AM") || time.includes("PM")) && !res['military_format']) {
+                            blob['GameStatus'] = time;
                         }
                         // If you want a specific order, put the cards in dictionaries,
                         // get the ordered array, then loop through that array and append
