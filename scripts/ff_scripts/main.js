@@ -34,7 +34,7 @@ function main() {
                 if (blob['GameStatus']) {
                     browser.storage.sync.get("military_format").then((res) => {
                         const time = timeTo12(blob['GameStatus']);
-                        if ((!isNaN(time) || !time.includes("NaN:")) && !res['military_format']) {
+                        if ((!time.includes("NaN:")) && !res['military_format']) {
                             blob['GameStatus'] = time;
                         }
                         // If you want a specific order, put the cards in dictionaries,
