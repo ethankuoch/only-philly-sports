@@ -7,3 +7,6 @@ manifests/
 /chrome_ops
 /ff_ops
 .DS_STORE
+/scripts/teams.json
+package-lock.json
+package.json

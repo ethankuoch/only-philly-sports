@@ -1,5 +1,4 @@
-*** 
-
+---
 <h1 align="center">
 <sub>
 <img src="./icons/logo.png" height="38" width="38">
@@ -11,16 +10,15 @@ Only Philly Sports
 <a href="https://addons.mozilla.org/addon/only-philly-sports/"><img src="https://user-images.githubusercontent.com/585534/107280546-7b9b2a00-6a26-11eb-8f9f-f95932f4bfec.png" alt="OPS for Firefox"></a>
 <a href="https://microsoftedge.microsoft.com/addons/detail/only-philly-sports/abfhkhkibnnjcakeaogfnhcgiippfmge"><img src="https://user-images.githubusercontent.com/585534/107280673-a5ece780-6a26-11eb-9cc7-9fa9f9f81180.png" alt="OPS for Edge"></a>
 </p>
-
-***
+---
 
 #### Add-on to quickly display times and scores for today's (Philadelphia) sports games.
 
 ## Disclaimers
 
-* Occasional updates, so expect this to be outdated or broken from time to time.
-* Chrome requires a fee to publish add-ons, so I will not be publishing to Chrome Store for now
-* Not really only philly sports! (see features)
+- Occasional updates, so expect this to be outdated or broken from time to time.
+- Chrome requires a fee to publish add-ons, so I will not be publishing to Chrome Store for now
+- Not really only philly sports! (see features)
 
 ## Screenshots
 
@@ -29,13 +27,13 @@ Only Philly Sports
 
 ## Features
 
-* Option to toggle MLB, NFL, NBA, and NHL scores
-* Follow other teams by entering in their abbreviation (PHI)
-* Scheduled time will display if there's currently no game playing, live score otherwise
-* Final scores displayed when the game is over
+- Option to toggle MLB, NFL, NBA, and NHL scores
+- Follow other teams by entering in their abbreviation (PHI)
+- Scheduled time will display if there's currently no game playing, live score otherwise
+- Final scores displayed when the game is over
 
 ## Future Ideas
 
-* Custom ordering of displaying leagues
-* Multiple teams from the same league
-* Use team pictures instead of manually entering team abbreviation
+- Custom ordering of displaying leagues
+- Multiple teams from the same league
+- Use team pictures instead of manually entering team abbreviation
