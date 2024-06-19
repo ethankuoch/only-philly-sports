@@ -18,7 +18,7 @@ Only Philly Sports
 
 - Occasional updates, so expect this to be outdated or broken from time to time.
 - Chrome requires a fee to publish add-ons, so I will not be publishing to Chrome Store for now
-- Not really only philly sports! (see features)
+- Not only philly sports! (see features)
 
 ## Screenshots
 
@@ -28,7 +28,7 @@ Only Philly Sports
 ## Features
 
 - Option to toggle MLB, NFL, NBA, and NHL scores
-- Follow other teams by entering in their abbreviation (PHI)
+- Follow other teams by selecting them
 - Scheduled time will display if there's currently no game playing, live score otherwise
 - Final scores displayed when the game is over
 
@@ -36,4 +36,3 @@ Only Philly Sports
 
 - Custom ordering of displaying leagues
 - Multiple teams from the same league
-- Use team pictures instead of manually entering team abbreviation
