@@ -1,24 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MantineProvider } from "@mantine/core";
-import TeamSelect from "./components/TeamSelect/TeamSelect.tsx";
+import ScoreCard from "./components/ScoreCard/ScoreCard.tsx";
 import "./App.css";
 import "@mantine/core/styles.css";
+import { teamCodes } from "./utils/api.ts";
+
 function App() {
-  const [count, setCount] = useState(0);
+  const [leagues, setLeagues] = useState<string[]>([]);
+
+  useEffect(() => {
+    chrome.storage.sync.get(Object.keys(teamCodes), (results) => {
+      const enabledLeagues = Object.keys(results).filter(
+        (key) => results[key] === true,
+      );
+      setLeagues(enabledLeagues);
+    });
+  }, []);
 
   return (
     <>
       <MantineProvider>
-        <h1>Vite + React</h1>
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test HMR
-          </p>
-        </div>
-        <TeamSelect league={"nfl"} />
+        {leagues.map((league) => (
+          <ScoreCard league={league} />
+        ))}
       </MantineProvider>
     </>
   );

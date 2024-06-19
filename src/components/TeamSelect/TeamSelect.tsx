@@ -1,11 +1,11 @@
-import { getTeamLogosByLeague, League, teamCodes } from "../../utils/api.ts";
+import { getTeamLogosByLeague, teamCodes } from "../../utils/api.ts";
 import "./TeamSelect.css";
 import { Group, MultiSelect, MultiSelectProps, Avatar } from "@mantine/core";
 import { IconCheck } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 
 type TeamSelectProps = {
-  league: League;
+  league: string;
 };
 
 const iconProps = {
@@ -16,7 +16,7 @@ const iconProps = {
 };
 
 const TeamSelect = (props: TeamSelectProps) => {
-  const [team, setTeam] = useState<string[]>();
+  const [teams, setTeams] = useState<string[]>();
   const teamLogos: Record<string, string> = getTeamLogosByLeague(props.league);
   const renderMultiSelectOption: MultiSelectProps["renderOption"] = ({
     option,
@@ -33,7 +33,7 @@ const TeamSelect = (props: TeamSelectProps) => {
 
   useEffect(() => {
     chrome.storage.sync.get([`${props.league}Teams`], (results) => {
-      setTeam(results[`${props.league}Teams`]);
+      setTeams(results[`${props.league}Teams`]);
     });
   }, [props.league]);
 
@@ -42,7 +42,7 @@ const TeamSelect = (props: TeamSelectProps) => {
    * @param newTeams array of newly selected teams
    */
   function handleTeamChange(newTeams: string[]): void {
-    setTeam(newTeams);
+    setTeams(newTeams);
     const teamObj: Record<string, string[]> = {};
     teamObj[`${props.league}Teams`] = newTeams;
     chrome.storage.sync.set(teamObj).then();
@@ -52,7 +52,7 @@ const TeamSelect = (props: TeamSelectProps) => {
     <MultiSelect
       label={props.league.toUpperCase()}
       data={teamCodes[props.league].split(" ")}
-      value={team}
+      value={teams}
       onChange={handleTeamChange}
       maxDropdownHeight={200}
       renderOption={renderMultiSelectOption}
