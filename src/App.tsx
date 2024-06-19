@@ -3,7 +3,6 @@ import { MantineProvider } from "@mantine/core";
 import TeamSelect from "./components/TeamSelect/TeamSelect.tsx";
 import "./App.css";
 import "@mantine/core/styles.css";
-
 function App() {
   const [count, setCount] = useState(0);
 
