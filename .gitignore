@@ -10,13 +10,11 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-dist/*
 *.local
 manifests
-manifests/*
 ops.zip
 src/utils
-src/utils/*
+Makefile
 
 # Editor directories and files
 .vscode/*
@@ -28,3 +26,4 @@ src/utils/*
 *.njsproj
 *.sln
 *.sw?
+*.iml
