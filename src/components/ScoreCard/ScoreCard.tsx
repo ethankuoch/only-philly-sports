@@ -14,11 +14,11 @@ const ScoreCard = (props: ScoreCardProps) => {
     chrome.storage.sync.get([`${props.league}Teams`], (results) => {
       parse(props.league, results[`${props.league}Teams`]).then(
         (games: GameInfo[] | undefined) => {
-          if (typeof games !== "undefined") {
-            chrome.storage.sync.get(["isMilitaryFormat"], (res) => {
+          if (typeof games !== "undefined" && games.length > 0) {
+            chrome.storage.sync.get(["is24HourFormat"], (res) => {
               for (const game of games) {
                 const time = timeTo12(game.GameStatus);
-                if (!time.includes("NaN:") && !res.isMilitaryFormat) {
+                if (!time.includes("NaN:") && !res.is24HourFormat) {
                   game.GameStatus = time;
                 }
               }

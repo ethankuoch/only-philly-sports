@@ -56,9 +56,9 @@ const TeamSelect = (props: TeamSelectProps) => {
       onChange={handleTeamChange}
       maxDropdownHeight={200}
       renderOption={renderMultiSelectOption}
-      maxValues={3}
-      clearable
+      maxValues={2}
       searchable
+      width={200}
     />
   );
 };
