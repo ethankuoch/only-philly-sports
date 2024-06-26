@@ -35,4 +35,3 @@ Only Philly Sports
 ## Future Ideas
 
 - Custom ordering of displaying leagues
-- Multiple teams from the same league

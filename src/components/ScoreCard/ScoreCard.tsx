@@ -36,7 +36,9 @@ const ScoreCard = (props: ScoreCardProps) => {
       <h3>{props.league.toUpperCase()}</h3>
       {gamesData.map((game) => (
         <div className="game">
-          <p className="status">{game.GameStatus}</p>
+          <p className={`status ${game.isGameLive ? "live-game" : ""}`}>
+            {game.GameStatus}
+          </p>{" "}
           <div className="row">
             <Avatar src={game.AwayLogo} size={65} radius="0" />
             <span>{game.GameScore}</span>

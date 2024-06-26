@@ -1,21 +1,21 @@
 #root {
-    height: 100vh;
-    padding-left: 2em;
+  height: 100vh;
+  padding-left: 2em;
 }
 
 .team-select {
-    display: flex;
-    gap: 16px;
-    flex-direction: column;
-    margin-bottom: 2em;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  margin-bottom: 2em;
 }
 
 .team-select-row {
-    display: flex;
-    gap: 8px;
+  display: flex;
+  gap: 8px;
 }
 
 .section {
-    display: flex;
-    gap: 8px;
+  display: flex;
+  gap: 8px;
 }
