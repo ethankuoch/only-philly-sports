@@ -1,11 +1,11 @@
-import { getTeamLogosByLeague, teamCodes } from "../../utils/api.ts";
+import { getTeamLogosByLeague, League, teamCodes } from "../../utils/api.ts";
 import "./TeamSelect.css";
 import { Group, MultiSelect, MultiSelectProps, Avatar } from "@mantine/core";
 import { IconCheck } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 
 type TeamSelectProps = {
-  league: string;
+  league: League;
 };
 
 const iconProps = {

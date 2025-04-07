@@ -4,7 +4,7 @@ import { GameInfo, parse } from "../../utils/api.ts";
 import { timeTo12 } from "../../utils/helpers.ts";
 import { Avatar } from "@mantine/core";
 type ScoreCardProps = {
-  league: string;
+  league: "nfl" | "mlb" | "nba" | "nhl";
 };
 
 const ScoreCard = (props: ScoreCardProps) => {
