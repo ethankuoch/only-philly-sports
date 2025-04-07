@@ -5,7 +5,7 @@ dist-ssr
 manifests
 ops.zip
 src/utils
-stc/test
+src/test
 Makefile
 
 # Editor directories and files
