@@ -44,7 +44,7 @@ function App() {
   return (
     <>
       <MantineProvider>
-        {leagues.map((league) => (
+        {leagues.map((league: any) => (
           <ScoreCard league={league} />
         ))}
       </MantineProvider>

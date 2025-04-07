@@ -1,10 +1,10 @@
 import "./ScoreCard.css";
 import { useEffect, useState } from "react";
-import { GameInfo, parse } from "../../utils/api.ts";
+import { GameInfo, League, parse } from "../../utils/api.ts";
 import { timeTo12 } from "../../utils/helpers.ts";
 import { Avatar } from "@mantine/core";
 type ScoreCardProps = {
-  league: "nfl" | "mlb" | "nba" | "nhl";
+  league: League;
 };
 
 const ScoreCard = (props: ScoreCardProps) => {

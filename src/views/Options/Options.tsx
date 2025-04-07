@@ -68,7 +68,7 @@ function App() {
           </Group>
         </div>
         <div className={"team-select"}>
-          {Object.keys(leagueToggles).map((league) => (
+          {Object.keys(leagueToggles).map((league: any) => (
             <div className="team-select-row">
               <Checkbox
                 defaultChecked={leagueToggles[league]}
